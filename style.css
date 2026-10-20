@@ -1,0 +1,53 @@
+:root {
+    --light-x: 50%;
+    --light-y: 50%;
+    --light-radius: 140px;
+}
+
+body {
+    background: #000;
+}
+
+.cave{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+}
+
+.wall {
+    position: absolute;
+    inset: 0;
+}
+
+.wall-dark {
+    background: #13100d;
+}
+
+.wall-light {
+    background: #5c3f25;
+    display: grid;
+    place-items: center;
+    color: #f3d9a4;
+    -webkit-mask-image: radial-gradient(circle var(--light-radius) at var(--light-x) var(--light-y), black 0%, black 40%, transparent 100%);
+    mask-image: radial-gradient(circle var(--light-radius) at var(--light-x) var(--light-y), black 0%, black 40%, transparent 100%);
+}
+
+.torch {
+    position: absolute;
+    left: var(--light-x);
+    top: var(--light-y);
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    background: none;
+    border: none;
+    cursor: grab;
+    touch-action: none;
+}
+
+.torch:active {
+    cursor: grabbing;
+}
